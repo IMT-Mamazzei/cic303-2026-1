@@ -49,7 +49,7 @@ Identifier = {Letter}({Letter}|{Digit}|_){0,31}
     /* Adicione as demais aqui... */
 
     /* TODO 4: Pontuação ( ) { } ; */
-    \(             { return token(Tag.LPAREN, yytext()); }
+    "("             { return token(Tag.LPAREN, yytext()); }
     /* Adicione as demais aqui... */
 
     /* TODO 5: Operadores de Atribuição e Relacionais (=, ==, !=, <, >, <=, >=) */
@@ -68,7 +68,7 @@ Identifier = {Letter}({Letter}|{Digit}|_){0,31}
     {Number}        { return token(Tag.NUMBER, yytext()); }
 
     /* Identificadores grandes demais (Captura o erro) */
-    {Letter}({Letter}|{Digit}|_){32,} { 
+    {Letter}({Letter}|{Digit}|_){32} { 
         return token(Tag.ERROR, "Erro Léxico: Identificador ultrapassou 32 caracteres -> " + yytext()); 
     }
 
