@@ -21,53 +21,53 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: Teste 01 - Ignorar espacos
+    - name: Teste 01 - Atribuição Simples
       id: teste01
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Teste 01 - Ignorar espaços
+        test-name: Teste 01 - Atribuição Simples
         setup-command: ''
-        command: mvn test -Dtest=ValidadorFase2Test#test01_PalavrasReservadasEPontuacao -f fase02-automatizando-lexico/pom.xml
+        command: mvn test -Dtest=ValidadorFase3Test#test01_AtribuicaoSimples -f fase03-o-problema-da-ordem/pom.xml
         timeout: 10
         max-score: 2
 
-    - name: Teste 02 - Operadores com precedencia
+    - name: Teste 02 - Estruturas de controle
       id: teste02
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Teste 02 - Operadores
+        test-name: Teste 02 - Estruturas de controle
         setup-command: ''
-        command: mvn test -Dtest=ValidadorFase2Test#test02_OperadoresComPrecedenciaLexica -f fase02-automatizando-lexico/pom.xml
+        command: mvn test -Dtest=ValidadorFase3Test#test02_EstruturasDeControle -f fase03-o-problema-da-ordem/pom.xml
         timeout: 10
         max-score: 2
 
-    - name: Teste 03 - Notacao Cientifica
+    - name: Teste 03 - Rejeita Código Mal Formado
       id: teste03
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Teste 03 - Identificadores
+        test-name: Teste 03 - Rejeita Código Mal Formado
         setup-command: ''
-        command: mvn test -Dtest=ValidadorFase2Test#test03_NotacaoCientifica -f fase02-automatizando-lexico/pom.xml
+        command: mvn test -Dtest=ValidadorFase3Test#test03_RejeitaCodigoMalFormado -f fase03-o-problema-da-ordem/pom.xml
         timeout: 10
         max-score: 2
 
-    - name: Teste 04 - Regra dos 32 caracteres
+    - name: Teste 04 - Rejeita Falta de Ponto e Vírgula
       id: teste04
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Teste 04 - Números
+        test-name: Teste 04 - Rejeita Falta de Ponto e Vírgula
         setup-command: ''
-        command: mvn test -Dtest=ValidadorFase2Test#test04_RegraDos32Caracteres -f fase02-automatizando-lexico/pom.xml
+        command: mvn test -Dtest=ValidadorFase3Test#test04_RejeitaFaltaDePontoEVirgula -f fase03-o-problema-da-ordem/pom.xml
         timeout: 10
         max-score: 2
 
-    - name: Teste 05 - Ignorar Espacos e Erros
+    - name: Teste 05 - Bloco Vazio e Null Statement
       id: teste05
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Teste 05 - Programa completo
+        test-name: Teste 05 - Bloco Vazio e Null Statement
         setup-command: ''
-        command: mvn test -Dtest=ValidadorFase2Test#test05_IgnorarEspacosEErros -f fase02-automatizando-lexico/pom.xml
+        command: mvn test -Dtest=ValidadorFase3Test#test05_BlocoVazioENullStatement -f fase03-o-problema-da-ordem/pom.xml
         timeout: 10
         max-score: 2
 
