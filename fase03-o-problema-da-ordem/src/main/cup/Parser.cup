@@ -2,12 +2,6 @@ package br.maua.cic303;
 
 import java_cup.runtime.*;
 
-parser code {:
-    // Método chamado pelo CUP quando encontra um erro sintático
-    public void syntax_error(Symbol cur_token) {
-        throw new RuntimeException("Erro Sintático na linha " + cur_token.left + ", coluna " + cur_token.right);
-    }
-:}
 
 /* ========================================================================= */
 /* DECLARAÇÃO DOS TOKENS (TERMINAIS)                                         */
@@ -18,6 +12,16 @@ terminal IF, THEN, ELSE, WHILE;
 terminal ASSIGN, LPAREN, RPAREN, LBRACE, RBRACE, SEMI;
 terminal String ID, NUMBER;
 terminal String ADD_OP, MUL_OP, REL_OP;
+
+parser code {:
+    public void syntax_error(Symbol cur_token) {
+        throw new RuntimeException(
+            "Erro Sintático: token inesperado '" + cur_token.value +
+            "' na linha " + (cur_token.left + 1) +
+            ", coluna " + (cur_token.right + 1)
+        );
+    }
+:};
 
 /* ========================================================================= */
 /* DECLARAÇÃO DOS NÃO-TERMINAIS (VARIÁVEIS DA GRAMÁTICA)                     */
